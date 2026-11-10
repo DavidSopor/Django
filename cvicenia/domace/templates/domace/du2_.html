@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>du2_</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+        .vizitka{
+            border: 1px solid black;
+            width: 60vw;
+            height: 50vh;
+            display: flex;
+            flex-direction:row;
+            justify-content: center;
+        }
+        .profilovka{
+            width: 15vW;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+        .udaje{
+            width: 45vW;
+            display: flex;
+            flex-direction:column;
+            justify-content: center;
+        }
+        .vek{
+            display: flex;
+            flex-direction:row;
+            justify-content: start;
+            align-items: start;
+        }
+        .predmety{
+            display: flex;
+            flex-direction:row;
+            justify-content: start;
+            align-items: start;
+        }
+    </style>
+</head>
+<body>
+    <div class="vizitka">
+        <div class="profilovka">
+            <div class="obraz">
+                profilovka
+            </div>
+        </div>
+        <div class="udaje">
+            <div class="meno">
+                Meno: {{meno}}
+            </div>
+            <div class="trieda">
+                Trieda: {{trieda}}
+            </div>
+            <div class="vek">
+                <div>Vek: {{vek}}</div>
+                {% if vek >= 18 %}
+                    <div>- Plnolety</div>
+                {% else %}
+                    <div>- Neplnolety</div>
+                {% endif %}
+            </div>
+            
+            <div class="predmety">
+                <div>Oblubene predmety: </div>
+                {% for z in oblubene_predmety %}
+                    <div>{{z}},</div>
+                {% empty %}
+                    <div>Ziadne zaluby</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
