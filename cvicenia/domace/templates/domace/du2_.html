@@ -72,11 +72,13 @@
             
             <div class="predmety">
                 <div>Oblubene predmety: </div>
-                {% for z in oblubene_predmety %}
-                    <div>{{z}},</div>
-                {% empty %}
-                    <div>Ziadne zaluby</div>
-                {% endfor %}
+                <ol>
+                    {% for z in oblubene_predmety %}
+                        <li>{{z}}</li>
+                    {% empty %}
+                        <li>Ziadne zaluby</li>
+                    {% endfor %}
+                </ol>
             </div>
         </div>
     </div>
