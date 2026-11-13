@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>sucet dvoch cisel</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" name="a" required>
+        <div>+</div>
+        <input type="number" name="b" required>
+        <button type="submit">vypocitat</button>
+    </form>
+    {% if vysledok %}
+        <p>Vysledok: {{ vysledok }}</p>
+    {% endif %}
+</body>
+</html>

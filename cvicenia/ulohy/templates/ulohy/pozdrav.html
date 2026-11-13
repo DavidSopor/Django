@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pozdrav</h1>
+    <form method="get">
+        <label for="meno">Meno: </label>
+        <input type="text" name="meno">
+        <button type="submit">Odoslat</button>
+    </form>
+    {% if meno %}
+        <p>ahoj {{ meno }}</p>
+    {% endif %}
+</body>
+</html>
