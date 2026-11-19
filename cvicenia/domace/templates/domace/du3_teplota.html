@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Prevod teploty</title>
+</head>
+<body>
+    <h1>Prevod teploty</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="teplota">Teplota:</label>
+        <input type="number" step="any" id="teplota" name="teplota" value="{{ teplota }}" required>
+
+        <label for="prevod">Smer prevodu:</label>
+        <select name="prevod" id="prevod">
+            <option value="cf">°C -> °F</option>
+            <option value="fc">°F -> °C</option>
+        </select>
+
+        <button type="submit">Prepocitat</button>
+    </form>
+
+    {% if vysledok %}
+        <p>Výsledok: {{ vysledok }}</p>
+    {% endif %}
+</body>
+</html>

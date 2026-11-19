@@ -12,3 +12,15 @@ def vizitka(request):
         "oblubene_predmety":["TSV","PROG","IOT"],
     }
     return render(request, "domace/du2_.html", kontext)
+
+def du3_teplota(request):
+    vysledok = None
+    if request.method == "POST":
+        teplota = float(request.POST["teplota"])
+        prevod = request.POST["prevod"]
+        if prevod == "cf":
+            vysledok = teplota * 9 / 5 + 32
+        elif prevod == "fc":
+            vysledok = (teplota - 32) * 5 / 9
+
+    return render(request, "domace/du3_teplota.html", {"vysledok": vysledok})
