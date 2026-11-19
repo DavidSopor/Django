@@ -19,8 +19,8 @@ def du3_teplota(request):
         teplota = float(request.POST["teplota"])
         prevod = request.POST["prevod"]
         if prevod == "cf":
-            vysledok = teplota * 9 / 5 + 32
+            vysledok = round(teplota * 9 / 5 + 32, 1)
         elif prevod == "fc":
-            vysledok = (teplota - 32) * 5 / 9
+            vysledok = round((teplota - 32) * 5 / 9, 1)
 
     return render(request, "domace/du3_teplota.html", {"vysledok": vysledok})
