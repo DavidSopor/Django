@@ -31,7 +31,7 @@ def cv1_obchod(request):
 
     return render(request, "cv1/cv1_obchod.html", {"kontext": produkty, "e":e})
 
-def body(request):
+def cv1_body(request):
     vysledok = None
     z_body = None
     max_body = None
