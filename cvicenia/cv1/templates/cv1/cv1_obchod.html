@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+       <tr>
+            <th>Nazov</th>
+            <th>Cena</th>
+       </tr>
+       {% for p in kontext %} 
+       <tr>
+            <td>{{p.nazov}}</td>
+            {% if p.cena < 5 %}
+                <th>{{p.cena|floatformat:2}}€</th>
+            {% else %}
+                <td>{{p.cena|floatformat:2}}€</td>
+            {% endif %}
+       </tr>
+       {% endfor %}
+    </table>
+
+    {% if not kontext %}
+        <p>ziaden tovar nesplna filter</p>
+    {% endif %}
+
+    <form method="get">
+        {% csrf_token %}
+        <label for="fltr">maximalna cena</label>
+        <input type="text" name="fltr" required>
+        <button type="submit">filtrovat</button>
+    </form>
+    {% if e != None %}
+        <p>nespravny input</p>
+    {% endif %}
+</body>
+</html>

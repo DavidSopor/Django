@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="z_body">ziskane body</label>
+        <input type="text" name="z_body" required>
+        <label for="max_body">maximalne body</label>
+        <input type="text" name="max_body" required>
+        <button type="submit">vypocitat</button>
+    </form>
+
+    {% if znamka == "delenie nulou" %}
+        <p>Maximalny pocet bodov nesmie byt nula</p>
+    {% elif znamka == "nespravny input" %}
+        <p>Nespravny input</p>
+    {% endif %}
+
+    {% if vysledok != None %}
+        <p>{{z_body}} z {{max_body}} = {{vysledok|floatformat:1}}% -> znamka {{znamka}}</p>
+    {% endif %}
+    
+</body>
+</html>
